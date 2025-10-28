@@ -81,7 +81,7 @@ export const updateCartItemQuantity = async (req, res) => {
 
     const cartItem = await cartModel.findByIdAndUpdate(
       id,
-      { quantity },
+      { quantity: quantity },
       { new: true }
     );
 
