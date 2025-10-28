@@ -1,11 +1,16 @@
 import express from 'express';
-import { addToCart, showAllProductsInCart } from '../Controller/cart.controller.js';
-import {verifyToken} from '../middleware/authMiddleware.js'
+import { addToCart, clearCart, deleteFromCart, getCartTotal, showAllProductsInCart, updateCartItemQuantity } from '../Controller/cart.controller.js';
+// import {verifyToken} from '../middleware/authMiddleware.js'
 
 const cartRoute = express.Router();
 
-cartRoute.post("/:id" , verifyToken, addToCart);
+// cartRoute.post("/:id" , verifyToken, addToCart);
+cartRoute.post("/:id" , addToCart);
 cartRoute.get("/cart-products", showAllProductsInCart);
+cartRoute.delete("/delete-from-cart/:id", deleteFromCart);
+cartRoute.delete("/clear-cart", clearCart);
+cartRoute.put("/update-cart-item/:id", updateCartItemQuantity);
+cartRoute.post('/getTotalCartValue', getCartTotal);
 
 export default cartRoute;
 
