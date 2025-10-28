@@ -4,7 +4,7 @@ import { addToCart, clearCart, deleteFromCart, getCartTotal, showAllProductsInCa
 
 const cartRoute = express.Router();
 
-// cartRoute.post("/:id" , verifyToken, addToCart);
+// cartRoute.post("/:id" , verifyToken, addToCart); // later use verifyToken middleware
 cartRoute.post("/:id" , addToCart);
 cartRoute.get("/cart-products", showAllProductsInCart);
 cartRoute.delete("/delete-from-cart/:id", deleteFromCart);

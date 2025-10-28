@@ -4,7 +4,7 @@ import cartModel from "../Models/cart.model.js";
 
 export const addToCart = async (req, res) => {
   try {
-    // const userId = req.user.id;          // from JWT/session
+    // const userId = req.user.id;          
     const { id } = req.params;           // product id
 
     // const user = await userModel.findById(userId);

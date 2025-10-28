@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const cartSchema = new mongoose.Schema({
-      // userId: { type: String, required: true }, // reference user
+      // userId: { type: String, required: true }, 
       productId: { type: String, required: true },
       title: { type: String },
       price: { type: Number},
