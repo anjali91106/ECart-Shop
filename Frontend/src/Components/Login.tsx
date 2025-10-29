@@ -30,7 +30,8 @@ const Login = () => {
         "http://localhost:3000/user/log-in",
         userData
       );
-      console.log(res.data);
+      localStorage.setItem("userLoginInfo", res.data.user.name);
+      console.log(res.data.user);
       toast("LogIn successful!", {
         action: {
           label: "OK",

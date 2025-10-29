@@ -34,8 +34,9 @@ const Signup = () => {
         "http://localhost:3000/user/sign-up",
         userData
       );
-      console.log(res.data);
-      toast("Signup successful!", {
+      localStorage.setItem("data", res.data.user);
+      console.log(res.data.user);
+      toast(`Signup successful! `, {
         action: {
           label: "OK",
           onClick: () => navigate("/log-in"),

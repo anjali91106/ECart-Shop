@@ -36,6 +36,7 @@ const Home = () => {
 
     // setCartProduct(addCart.data);
     console.log(addCart.data, "ADDED TO CART");
+    navigate('/cart');
     }
 
   return (

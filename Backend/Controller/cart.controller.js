@@ -58,7 +58,7 @@ export const showAllProductsInCart = async (req, res) => {
 export const deleteFromCart = async (req, res) => {
   try {
     const { id } = req.params; // cart item ID
-    const deletedItem = await cartModel.findByIdAndDelete({ productId: id });
+    const deletedItem = await cartModel.findByIdAndDelete(id);
 
     if (!deletedItem) {
       return res.status(404).json({ message: "Cart item not found!" });

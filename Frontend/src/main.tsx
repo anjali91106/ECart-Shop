@@ -8,7 +8,7 @@ import Login from './Components/Login.tsx'
 import ProductDetails from './Components/ProductDetails.tsx'
 import Home from './Components/Home.tsx'
 import SearchProducts from './Components/SearchProducts.tsx'
-// import Cart from './Components/Cart.tsx'
+import Cart from './Components/Cart.tsx'
 
 const appRouter = createBrowserRouter([
    {
@@ -27,10 +27,10 @@ const appRouter = createBrowserRouter([
          path: '/search-products',
          element: <SearchProducts/>
       },
-      // {
-      //    path: '/cart/:productId',
-      //    element: <Cart/>
-      // }
+      {
+         path: '/cart',
+         element: <Cart/>
+      }
     ]
    },
    {

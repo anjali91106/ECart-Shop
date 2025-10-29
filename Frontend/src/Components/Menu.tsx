@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { Input } from "./ui/input";
-import { Search, ShoppingBasketIcon } from "lucide-react";
+import { Heart, Search, ShoppingBasketIcon } from "lucide-react";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -12,6 +12,11 @@ const Menu = () => {
     navigate(`/search-products?q=${search}`);
     setSearch("");
   }
+
+  // const userDataSignup = localStorage.getItem("data");
+  // console.log(userDataSignup, "local userData")
+  const userDataLogin = localStorage.getItem("userLoginInfo");
+  console.log(userDataLogin, "Login user info")
 
   return (
     <div className="pb-10">
@@ -28,7 +33,15 @@ const Menu = () => {
             <li>About</li>
             <li>Services</li>
             <li>Contact</li>
-            <li><ShoppingBasketIcon/></li>
+            <li><Heart/></li>
+            <Button className="bg-none" 
+              onClick={() => {
+                navigate('/cart')
+              }
+            }
+            >
+                <ShoppingBasketIcon className=""/>
+            </Button>
           </ul>
 
           {/* search */}
@@ -43,7 +56,7 @@ const Menu = () => {
 
           {/* <!-- Button --> */}
           <Button onClick={() => { navigate('sign-up') }}>
-            Get Started
+            {userDataLogin === null || userDataLogin === '' || userDataLogin === undefined ? "Sign-Up" : `${userDataLogin}`}
           </Button>
         </div>
       </nav>
