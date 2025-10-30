@@ -29,10 +29,10 @@ const Menu = () => {
 
           {/* <!-- Links --> */}
           <ul className="flex space-x-8 text-gray-700">
-            <li><Link to={"/"}>Home</Link></li>
-            <li>About</li>
-            <li>Services</li>
-            <li>Contact</li>
+            <li><Link to={"/"} className="link">Home</Link></li>
+            <li><Link to={'about'} className="link">About</Link></li>
+            <li><Link to={'services'} className="link">Services</Link></li>
+            <li><Link to={'contact'} className="link">Contact</Link></li>
             <li><Heart/></li>
             <Button className="bg-none" 
               onClick={() => {

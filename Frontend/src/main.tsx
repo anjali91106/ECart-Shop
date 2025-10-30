@@ -9,6 +9,9 @@ import ProductDetails from './Components/ProductDetails.tsx'
 import Home from './Components/Home.tsx'
 import SearchProducts from './Components/SearchProducts.tsx'
 import Cart from './Components/Cart.tsx'
+import About from './Components/About.tsx'
+import Services from './Components/Services.tsx'
+import Contact from './Components/Contact.tsx'
 
 const appRouter = createBrowserRouter([
    {
@@ -30,6 +33,18 @@ const appRouter = createBrowserRouter([
       {
          path: '/cart',
          element: <Cart/>
+      },
+      {
+         path: 'about',
+         element: <About/>
+      },
+      {
+         path: 'services',
+         element: <Services/>
+      },
+      {
+         path: 'contact',
+         element: <Contact/>
       }
     ]
    },
@@ -49,3 +64,4 @@ createRoot(document.getElementById('root')!).render(
      <RouterProvider router={appRouter} />
   </StrictMode>,
 )
+

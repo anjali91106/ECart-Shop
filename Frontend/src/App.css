@@ -161,3 +161,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.link {
+  color: black;
+}
+.link:hover {
+   color: gray
+}
+
