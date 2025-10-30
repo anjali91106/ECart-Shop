@@ -96,10 +96,7 @@ export const Signup = async (req, res) => {
 
 export const Login = async (req, res) => {
   try {
-    //getting user from req body
     const { email, password } = req.body;
-    //Decoding the password
-    // Find user by email
 
     if (!email || !password) {
       return res
@@ -112,35 +109,38 @@ export const Login = async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password." });
     }
 
-    // Compare password
-    const isMatch = bcrypt.compare(password, user.password);
+    // Compare password (FIX: Added await)
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid email or password." });
     }
 
-    //checking if the user is saved or not
     if (!SECRET_KEY) {
+      // It's good that you check this!
       throw new Error("SECRET_KEY is not defined in environment variables");
     }
-    //jsonweb token
-    const token = jwt.sign({ email, id: user._id, password }, SECRET_KEY, {
+
+    // jsonweb token (FIX: Removed 'password' from the payload)
+    const token = jwt.sign({ email, id: user._id }, SECRET_KEY, {
       expiresIn: "24h",
     });
+
     // Set cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,
+      secure: process.env.NODE_ENV === 'production', // Use secure:true in production
       sameSite: "lax",
       maxAge: 24 * 60 * 60 * 1000,
     });
 
-    //save the token into cookies or session
     res.status(200).json({
       message: "User Login Successfully!",
       user: { id: user._id, name: user.name, email: user.email },
-      token
+      token, // You can return the token too, but the primary method is the cookie
     });
   } catch (err) {
+    // Note: Logging the full err object on the server is helpful for debugging
+    console.error("Login error:", err); 
     res
       .status(500)
       .json({ message: "Something Went wrong", error: err.message });
