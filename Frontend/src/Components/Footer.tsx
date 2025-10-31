@@ -39,7 +39,7 @@ const Footer = () => {
                 {/* <!-- Bottom Section --> */}
                 <div className="mt-10 border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
                     <p>© 2025 MyBrand. All rights reserved.</p>
-                    <p className="mt-2 md:mt-0">Designed with ❤️ by You</p>
+                    <p className="mt-2 md:mt-0">Designed with ❤️</p>
                 </div>
             </div>
 
