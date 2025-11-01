@@ -24,7 +24,7 @@ const Cart = () => {
 
   const handleItemDelete = async (itemId: string) => {
     try {
-      const deleteApi = `http://localhost:3000/cart/delete-from-cart/${itemId}`;
+      const deleteApi = `https://ecart-shop.onrender.com/cart/delete-from-cart/${itemId}`;
       const { data } = await axios.delete(deleteApi);
 
       toast.success(`Item Deleted: ${data.deletedItem.productId}`);
