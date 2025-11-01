@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/user/log-in",
+        "https://ecart-shop.onrender.com/user/log-in",
         userData
       );
       localStorage.setItem("userLoginInfo", res.data.user.name);

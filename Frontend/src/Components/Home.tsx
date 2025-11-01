@@ -9,7 +9,7 @@ import { Truck, Shield, Star, ShoppingCart } from 'lucide-react'; // Icons for b
 
 const Home = () => {
   const navigate = useNavigate();
-  const api = 'http://localhost:3000/api/products';
+  const api = 'https://ecart-shop.onrender.com/api/products';
   const [products, setProducts] = useState<Product[]>([]);
   
   // State to hold a subset of products for the main grid display (e.g., first 6)
@@ -31,7 +31,7 @@ const Home = () => {
   }, [])
 
   const handleCart = async(productId : string) => {
-    const cartApi = `http://localhost:3000/cart/${productId}`;
+    const cartApi = `https://ecart-shop.onrender.com/cart/${productId}`;
     try {
       const addCart = await axios.post(cartApi, {}, {withCredentials: true});
       console.log("Added to Cart:", addCart.data);

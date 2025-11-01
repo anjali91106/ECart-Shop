@@ -10,7 +10,7 @@ const Cart = () => {
 
   useEffect(() => {
     const handleCart = async () => {
-      const api = `http://localhost:3000/cart/cart-products`;
+      const api = `https://ecart-shop.onrender.com/cart/cart-products`;
       const addCart = await axios.get(api);
       // console.log(addCart.data[0].productId, "CART PRODUCTS Id");
       // console.log(addCart.data[0].quantity, "CART PRODUCTS QUANTITY");

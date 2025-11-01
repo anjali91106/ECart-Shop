@@ -9,7 +9,7 @@ import { Star, Tag, ShoppingCart } from 'lucide-react'; // Added icons
 const ProductDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate(); // Initialize navigate
-    const api = `http://localhost:3000/api/products/${id}`;
+    const api = `https://ecart-shop.onrender.com/api/products/${id}`;
     const [product, setProduct] = useState<Product | null>(null);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const ProductDetails = () => {
     }, [api]) // Added 'api' to dependency array for correctness (though URL is constant)
 
     const handleCart = async(productId : string) => {
-        const cartApi = `http://localhost:3000/cart/${productId}`;
+        const cartApi = `https://ecart-shop.onrender.com/cart/${productId}`;
         try {
             // Your original cart logic is preserved
             const addCart = await axios.post(cartApi, {}, {withCredentials: true});

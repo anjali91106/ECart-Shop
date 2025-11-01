@@ -11,7 +11,7 @@ const SearchProducts = () => {
     const query = searchParams.get("q");  // e.g. /search-products?q=apple
     const [products, setProducts] = useState<Product[]>([]);
 
-    const searchApi = `http://localhost:3000/api/search?q=${query}`;
+    const searchApi = `https://ecart-shop.onrender.com/api/search?q=${query}`;
 
     useEffect(() => {
         async function productFind() {
